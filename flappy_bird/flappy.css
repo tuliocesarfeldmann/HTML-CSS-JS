@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Pixel';
+    src: url('../fonts/Pixel.ttf');
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #0D262D;
+    color: #fff;
+    height: 100%;
+}
+
+h1{
+    margin: 10px;
+}
+
+[wm-flappy] {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 520px;
+    width: 1200px;
+    margin: 15px;
+    background-color: deepskyblue;
+    overflow: hidden;
+}
+
+.passaro {
+    position: absolute;
+    width: 60px;
+    left: calc(50% - 30px);
+}
+
+.par-de-barreiras {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.barreira {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barreira .borda {
+    height: 30px;
+    width: 130px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border: 2px solid #000;
+}
+
+.barreira .corpo {
+    height: 150px;
+    width: 110px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.progresso {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: Pixel;
+    font-size: 70px;
+    z-index: 100;
+}
+
+.reiniciar{
+    position: absolute;
+    font-family: Pixel;
+    font-size: 35px;
+    padding: 7px;
+    z-index: 100;
+    color: white;
+    background-color: grey;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+.reiniciar:hover {
+    background-color: #555;
+}
+
+.reiniciar:active{
+    padding: 5px;
+}
+
+.telaInicial{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 50px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    text-align: center;
+    align-self: center;
+    background: linear-gradient(to right, #639301, #A5E82E);
+    border: 2px solid black;
+    z-index: 100;
+    border-radius: 20px;
+}
+
+.telaInicial .iniciar {
+    display: block;
+    background-color: transparent;
+    font-size: 20px;
+    color: white;
+    width: 200px;
+    background-color: gray;
+    padding: 10px;
+    border-radius: 20px;
+}

@@ -1,0 +1,132 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #EC19AC;
+    height: 100vh;
+    margin: 0px;
+    font-weight: 550;
+    background: linear-gradient(to right, #F282D0, #EC19AC);
+}
+
+.todo_input-item {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 5px;
+    margin: 5px;
+    text-align: center;
+    width: 665px;
+    z-index: 100;
+}
+
+.todo_input-item .title {
+    color: #fff;
+    background: linear-gradient(to right, #900065, #EC19AC);
+    font-size: 30px;
+    margin: 0;
+    padding: 10px;
+    box-shadow: 1px 1px 1px 1px #fff;
+    border-radius: 5px;
+}
+
+.name_todo {
+    margin: 10px 0px 10px 0px;
+    padding: 0px 5px;
+    width: 600px;
+    height: 50px;
+    font-size: 22px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 1px #fff;
+}
+
+.input_button {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 22px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: none;
+    box-shadow: 2px 2px 2px 2px #900065;
+}
+
+.input_button:hover {
+    box-shadow: none;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.pending {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 665px;
+    height: 40px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.delete_all {
+    vertical-align: bottom;
+    display: inline-block;
+    color: #fff;
+    background-color: transparent;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.delete_all:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.todo_list {
+    max-height: 70vh;
+    width: 665px;
+}
+
+.todo_item {
+    position: relative;
+    background-color: #fff;
+    color: #900065;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 25px;
+    height: 40px;
+    box-shadow: 2px 2px 2px 2px #900065;
+    border-radius: 5px;
+}
+
+.todo_item:hover {
+    background-color: #eee;
+}
+
+.todo_item .date_time {
+    font-size: 15px;
+}
+
+.todo_item .fa-trash {
+    position: absolute;
+    color: #900065;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    width: 30px;
+    right: 15px;
+    top: 6px;
+}
+
+.todo_item .fa-trash:hover {
+    color: red;
+    border-radius: 5px;
+    cursor: pointer;
+}
