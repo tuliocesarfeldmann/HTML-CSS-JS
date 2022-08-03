@@ -31,7 +31,7 @@ function TodoItem(name_todo, dateTime, pending){
     }
 }
 
-function todoList(){
+function TodoList(){
     const nameTodo = document.querySelectorAll('input')[0]
     const buttonInput = document.querySelectorAll('input')[1]
     const pending = document.getElementsByClassName('pending')[0]
@@ -70,4 +70,4 @@ function todoList(){
     }
 }
 
-new todoList
+new TodoList
