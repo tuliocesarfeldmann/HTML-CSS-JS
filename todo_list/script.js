@@ -65,7 +65,7 @@ function todoList(){
             pending.innerHTML = `Você possui ${numberTodos}
                 tarefas pendentes <input class="delete_all" type="button" value="Excluir tudo">`
             
-            document.getElementsByClassName('delete_all')[0].onclick = deleteAll
+            document.querySelector('.delete_all').onclick = deleteAll
         }
         nameTodo.value = null
     }
