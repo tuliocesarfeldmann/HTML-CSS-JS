@@ -58,19 +58,18 @@ function todoList(){
     buttonInput = document.querySelectorAll('input')[1]
     pending = document.getElementsByClassName('pending')[0]
 
-    buttonInput.onclick = e => {
+    addNewTodo = () => {
         if(nameTodo.value){
             TodoItem(nameTodo.value, pending)
             const numberTodos = Array.from(document.getElementsByClassName('todo_item')).length
             pending.innerHTML = `Você possui ${numberTodos}
                 tarefas pendentes <input class="delete_all" type="button" value="Excluir tudo">`
-            
-            document.querySelector('.delete_all').onclick = deleteAll
         }
+        document.querySelector('.delete_all').onclick = this.deleteAll
         nameTodo.value = null
     }
 
-    deleteAll = () => {
+    this.deleteAll = () => {
         if(confirm('Excluir todas as tarefas?')){
             const allTodos = document.getElementsByClassName('todo_item')
             Array.from(allTodos).forEach(todo => {
@@ -79,6 +78,9 @@ function todoList(){
             pending.innerHTML = 'Você possui 0 tarefas pendentes'
         }
     }
+
+    buttonInput.onclick = addNewTodo
+    window.addEventListener("keypress", (e) => e.key == "Enter" ? addNewTodo() : null)
 }
 
 todoList()
