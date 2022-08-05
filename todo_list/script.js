@@ -5,7 +5,7 @@ function NewElement(tag, className){
     this.get = () => element
 }
 
-function TodoItem(name_todo, pending){
+function TodoItem(name_todo, numberTodos){
     this.item = new NewElement('div', 'todo_item').get()
     this.item.innerHTML = name_todo
 
@@ -45,40 +45,44 @@ function TodoItem(name_todo, pending){
 
     buttonDelete.onclick = e => {
         todoList.removeChild(e.target.parentNode)
-        let numberTodos = Array.from(document.getElementsByClassName('todo_item')).length
-        pending.innerHTML = `Você possui ${numberTodos}
-            tarefas pendentes ${(numberTodos > 0) ?
-            '<input class="delete_all" type="button" value="Excluir tudo"></input>'
-            : ''}`
+        let todos = Array.from(document.getElementsByClassName('todo_item')).length
+        numberTodos.innerHTML = `Você possui ${todos}
+            tarefas pendentes`
+        todos == 0 ? buttonDeleteAll.style.visibility = 'hidden' : null
     }
 }
 
 function todoList(){
     nameTodo = document.querySelectorAll('input')[0]
     buttonInput = document.querySelectorAll('input')[1]
-    pending = document.getElementsByClassName('pending')[0]
+    numberTodos = document.querySelector('.number_todos')
+    buttonDeleteAll = document.querySelector('.delete_all')
+
+    buttonDeleteAll.style.visibility = 'hidden'
 
     addNewTodo = () => {
         if(nameTodo.value){
-            TodoItem(nameTodo.value, pending)
-            const numberTodos = Array.from(document.getElementsByClassName('todo_item')).length
-            pending.innerHTML = `Você possui ${numberTodos}
-                tarefas pendentes <input class="delete_all" type="button" value="Excluir tudo">`
+            TodoItem(nameTodo.value, numberTodos)
+            const todos = Array.from(document.getElementsByClassName('todo_item')).length
+            numberTodos.innerHTML = `Você possui ${todos} tarefas pendentes`
+
+            buttonDeleteAll.style.visibility = 'visible'
         }
-        document.querySelector('.delete_all').onclick = this.deleteAll
         nameTodo.value = null
     }
 
-    this.deleteAll = () => {
+    deleteAll = () => {
         if(confirm('Excluir todas as tarefas?')){
             const allTodos = document.getElementsByClassName('todo_item')
             Array.from(allTodos).forEach(todo => {
                 todo.parentNode.removeChild(todo)
             })
-            pending.innerHTML = 'Você possui 0 tarefas pendentes'
+            numberTodos.innerHTML = 'Você possui 0 tarefas pendentes'
+            buttonDeleteAll.style.visibility = 'hidden'
         }
     }
 
+    buttonDeleteAll.onclick = deleteAll
     buttonInput.onclick = addNewTodo
     window.addEventListener("keypress", (e) => e.key == "Enter" ? addNewTodo() : null)
 }

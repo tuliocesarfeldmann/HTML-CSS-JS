@@ -10,7 +10,7 @@ body {
     background: linear-gradient(to right, #F282D0, #EC19AC);
 }
 
-.todo_input-item {
+.header_todo {
     position: sticky;
     position: -webkit-sticky;
     top: 5px;
@@ -20,7 +20,7 @@ body {
     z-index: 100;
 }
 
-.todo_input-item .title {
+.header_todo .title {
     color: #fff;
     background: linear-gradient(to right, #900065, #EC19AC);
     font-size: 30px;
